@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bupt-netaccount-transfer-service"
+version = "0.1.0"
+description = "Headless keep-alive for BUPT's Sangfor aTrust SSL-VPN: netaccount.bupt.edu.cn TOTP automation via WeChat-side cookie capture, plus an HTTPS + TCP gateway so workstations without the VPN client can still reach BUPT intranet HTTP(S) and SSH."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+keywords = [
+    "bupt", "sangfor", "atrust", "ssl-vpn",
+    "captive-portal", "totp", "mitmproxy",
+    "ssh-tunnel", "reverse-proxy", "windows",
+]
+authors = [
+    {name = "bupt-netaccount-transfer-service contributors"},
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: Proxy Servers",
+    "Topic :: System :: Networking",
+]
+dependencies = [
+    "requests>=2.28",
+    "cryptography>=41",
+    "psutil>=5.9",
+    "mitmproxy>=10",
+    'pywinauto>=0.6;sys_platform=="win32"',
+]
+
+[project.optional-dependencies]
+dev = [
+    "paramiko>=3",
+]
+
+[project.urls]
+Homepage      = "https://github.com/AsmirZaric/bupt-netaccount-transfer-service"
+Documentation = "https://github.com/AsmirZaric/bupt-netaccount-transfer-service#readme"
+Issues        = "https://github.com/AsmirZaric/bupt-netaccount-transfer-service/issues"
+Source        = "https://github.com/AsmirZaric/bupt-netaccount-transfer-service"
+Changelog     = "https://github.com/AsmirZaric/bupt-netaccount-transfer-service/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+# This project is consumed primarily via the bash launcher scripts
+# (run_a.sh / run_b.sh / etc.), not via `pip install`. The pyproject is
+# here for metadata, dependency declaration, and so `pip install .` can
+# resolve the runtime deps for ad-hoc setup.
+py-modules = []
