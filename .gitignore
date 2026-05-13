@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Local diagnostic / probe scripts (start with a dot)
+.deploy_test.py
+.b_*.py
+.loop_test.py
+.loopback_https_test.py
+.ssh_tunnel_test.py
+.*_probe.py
+
+# Runtime data lives in %APPDATA%\atrust-vpn\, not in-tree; this is a
+# safety net in case someone reroutes it.
+state/
+logs/
+certs/
+*.pid
+*.flag
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
